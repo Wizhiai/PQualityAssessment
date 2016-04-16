@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+
+<package name="com.pq.action" extends="struts-default" namespace="/">
+
+<action name="login_*" class="loginAction" method="{1}"> 
+	<result name="student_index">/page/index_student.jsp</result>
+	<result name="teacher_index">/page/index_teacher.jsp</result>
+	<result name="admin_index">/page/index_admin.jsp</result>
+	<result name="login">/login.jsp</result>
+</action>
+<action name="user_*" class="UserMAction" method="{1}">
+	<result name="list">/page/user/list_user.jsp</result>
+	<result name="failepage">/page/user/add_user.jsp</result>
+	<result name="emptydata">/empty.jsp</result>
+</action>
+<action name="score_*" class="ScoreAction" method="{1}">
+	<result name="list">/page/score/list_score.jsp</result>
+	
+	<result name="failepage">/page/score/add_score.jsp</result>
+	<result name="yearlist">/page/score/yearlist_score.jsp</result>
+	<result name="emptydata">/empty.jsp</result>
+	<result name="success_evaluate">/success.jsp</result>
+	<result name="failed_evaluate">/failed.jsp</result>
+</action>
+<action name="evaluation_*" class="EvaluationAction" method="{1}">
+	<result name="evaluationlist">/page/evaluation/list_evaluation.jsp</result>
+	
+	<result name="detail">/page/evaluation/listdetail_evaluation.jsp</result>
+	<result name="detail_add">/page/evaluation/listdetailadd_evaluation.jsp</result>
+	<result name="yearlist">/page/evaluation/listdetailadd_evaluation.jsp</result>
+	<result name="emptydata">/empty.jsp</result>
+</action>
+<action name="student_*" class="StudentShowAction" method="{1}">
+     <result name="evaluationlist">/page/evaluation/liststudent_evaluation.jsp</result>
+	<result name="detail">/page/evaluation/liststudentdetail_evaluation.jsp</result>
+	<result name="emptydata">/empty.jsp</result>
+</action>
+<action name="professional_*" class="ProfessionalAction" method="{1}">
+     <result name="list">/page/teacher/list_teahcer.jsp</result>
+     <result name="listjury">/page/jury/list_jury.jsp</result>
+     <result name="setlist">/page/jury/add_jury.jsp</result>
+      <result name="listadd">/page/jury/save_jury.jsp</result>
+	<result name="failed">/failed.jsp</result>
+	<result name="emptydata">/empty.jsp</result>
+	<result name="alreadyexists">/page/jury/alreadyexists.jsp</result>
+</action>
+
+</package>
+
+</struts>    

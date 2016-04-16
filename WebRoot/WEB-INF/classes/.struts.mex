@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Struts2Diagram version="2.0">
+  <package name="com.pq.action" location="308,165" size="420,2975">
+    <action name="login_login" location="0,0" size="0,0">
+      <result name="student_index">
+        <resourceEdge source="student_index" routing="0" target="index_student.jsp" />
+      </result>
+      <result name="teacher_index">
+        <resourceEdge source="teacher_index" routing="0" target="index_teacher.jsp" />
+      </result>
+      <result name="admin_index">
+        <resourceEdge source="admin_index" routing="0" target="index_admin.jsp" />
+      </result>
+      <result name="login">
+        <resourceEdge source="login" routing="0" target="login.jsp" />
+      </result>
+    </action>
+    <action name="user_*" location="65,421" size="150,83">
+      <result name="list">
+        <resourceEdge source="list" routing="0" target="list_user.jsp" />
+      </result>
+      <result name="failepage">
+        <resourceEdge source="failepage" routing="0" target="add_user.jsp" />
+      </result>
+      <result name="emptydata">
+        <resourceEdge source="emptydata" routing="0" target="empty.jsp" />
+      </result>
+    </action>
+    <action name="score_*" location="65,1125" size="150,146">
+      <result name="list">
+        <resourceEdge source="list" routing="0" target="list_score.jsp" />
+      </result>
+      <result name="failepage">
+        <resourceEdge source="failepage" routing="0" target="add_score.jsp" />
+      </result>
+      <result name="yearlist">
+        <resourceEdge source="yearlist" routing="0" target="yearlist_score.jsp" />
+      </result>
+      <result name="emptydata">
+        <resourceEdge source="emptydata" routing="0" target="empty.jsp" />
+      </result>
+      <result name="success_evaluate">
+        <resourceEdge source="success_evaluate" routing="0" target="success.jsp" />
+      </result>
+      <result name="failed_evaluate">
+        <resourceEdge source="failed_evaluate" routing="0" target="failed.jsp" />
+      </result>
+    </action>
+    <action name="evaluation_*" location="65,1730" size="150,125">
+      <result name="evaluationlist">
+        <resourceEdge source="evaluationlist" routing="0" target="list_evaluation.jsp" />
+      </result>
+      <result name="detail">
+        <resourceEdge source="detail" routing="0" target="listdetail_evaluation.jsp" />
+      </result>
+      <result name="detail_add">
+        <resourceEdge source="detail_add" routing="0" target="listdetailadd_evaluation.jsp" />
+      </result>
+      <result name="yearlist">
+        <resourceEdge source="yearlist" routing="0" target="listdetailadd_evaluation.jsp" />
+      </result>
+      <result name="emptydata">
+        <resourceEdge source="emptydata" routing="0" target="empty.jsp" />
+      </result>
+    </action>
+    <action name="student_*" location="65,2031" size="150,83">
+      <result name="evaluationlist">
+        <resourceEdge source="evaluationlist" routing="0" target="liststudent_evaluation.jsp" />
+      </result>
+      <result name="detail">
+        <resourceEdge source="detail" routing="0" target="liststudentdetail_evaluation.jsp" />
+      </result>
+      <result name="emptydata">
+        <resourceEdge source="emptydata" routing="0" target="empty.jsp" />
+      </result>
+    </action>
+    <action name="professional_*" location="65,2199" size="150,167">
+      <result name="list">
+        <resourceEdge source="list" routing="0" target="list_teahcer.jsp" />
+      </result>
+      <result name="listjury">
+        <resourceEdge source="listjury" routing="0" target="list_jury.jsp" />
+      </result>
+      <result name="setlist">
+        <resourceEdge source="setlist" routing="0" target="add_jury.jsp" />
+      </result>
+      <result name="listadd">
+        <resourceEdge source="listadd" routing="0" target="save_jury.jsp" />
+      </result>
+      <result name="failed">
+        <resourceEdge source="failed" routing="0" target="failed.jsp" />
+      </result>
+      <result name="emptydata">
+        <resourceEdge source="emptydata" routing="0" target="empty.jsp" />
+      </result>
+      <result name="alreadyexists">
+        <resourceEdge source="alreadyexists" routing="0" target="alreadyexists.jsp" />
+      </result>
+    </action>
+  </package>
+  <webResource name="index_student.jsp" path="/page/index_student.jsp" location="765,220" size="150,55" />
+  <webResource name="index_teacher.jsp" path="/page/index_teacher.jsp" location="590,10" size="150,55" />
+  <webResource name="index_admin.jsp" path="/page/index_admin.jsp" location="350,10" size="150,55" />
+  <webResource name="login.jsp" path="/login.jsp" location="153,220" size="150,55" />
+  <webResource name="list_user.jsp" path="/page/user/list_user.jsp" location="768,570" size="150,55" />
+  <webResource name="add_user.jsp" path="/page/user/add_user.jsp" location="765,395" size="150,55" />
+  <webResource name="empty.jsp" path="/empty.jsp" location="149,2180" size="150,55" />
+  <webResource name="list_score.jsp" path="/page/score/list_score.jsp" location="794,1305" size="150,55" />
+  <webResource name="add_score.jsp" path="/page/score/add_score.jsp" location="791,1130" size="150,55" />
+  <webResource name="yearlist_score.jsp" path="/page/score/yearlist_score.jsp" location="779,955" size="150,55" />
+  <webResource name="success.jsp" path="/success.jsp" location="775,780" size="150,55" />
+  <webResource name="failed.jsp" path="/failed.jsp" location="1413,2390" size="150,55" />
+  <webResource name="list_evaluation.jsp" path="/page/evaluation/list_evaluation.jsp" location="794,1620" size="150,55" />
+  <webResource name="listdetail_evaluation.jsp" path="/page/evaluation/listdetail_evaluation.jsp" location="1089,1445" size="150,55" />
+  <webResource name="listdetailadd_evaluation.jsp" path="/page/evaluation/listdetailadd_evaluation.jsp" location="795,1795" size="150,55" />
+  <webResource name="liststudent_evaluation.jsp" path="/page/evaluation/liststudent_evaluation.jsp" location="766,2180" size="150,55" />
+  <webResource name="liststudentdetail_evaluation.jsp" path="/page/evaluation/liststudentdetail_evaluation.jsp" location="781,2005" size="150,55" />
+  <webResource name="list_teahcer.jsp" path="/page/teacher/list_teahcer.jsp" location="9,2530" size="150,55" />
+  <webResource name="list_jury.jsp" path="/page/jury/list_jury.jsp" location="72,2705" size="150,55" />
+  <webResource name="add_jury.jsp" path="/page/jury/add_jury.jsp" location="69,2880" size="150,55" />
+  <webResource name="save_jury.jsp" path="/page/jury/save_jury.jsp" location="67,3055" size="150,55" />
+  <webResource name="alreadyexists.jsp" path="/page/jury/alreadyexists.jsp" location="333,3195" size="150,55" />
+</Struts2Diagram>
+

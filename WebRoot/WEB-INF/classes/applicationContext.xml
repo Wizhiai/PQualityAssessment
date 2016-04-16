@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://rm-m5e49v03f5qe7p351.mysql.rds.aliyuncs.com:3306/basetraindb">
+		</property>
+		<property name="username" value="basetrain3"></property>
+		<property name="password" value="7788h00"></property>
+	</bean>
+	
+	
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>	
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/pq/domain/User.hbm.xml</value>
+				
+				<value>com/pq/domain/Xsjjxxiaoguo.hbm.xml</value>
+				<value>com/pq/domain/Xsysjdjianshe.hbm.xml</value>
+				<value>com/pq/domain/Xjiaoxuetixi.hbm.xml</value>
+				<value>com/pq/domain/Xbiyspingjia.hbm.xml</value>
+				<value>com/pq/domain/Xpinggubiaozhun.hbm.xml</value>
+				<value>com/pq/domain/Xjxgcjiankong.hbm.xml</value>
+				<value>com/pq/domain/Xszjsglzd.hbm.xml</value>
+				<value>com/pq/domain/Xevaluate.hbm.xml</value>
+				
+				
+				<value>com/pq/domain/Xteacher.hbm.xml</value>
+				<value>com/pq/domain/Xprofessional.hbm.xml</value></list>
+		</property>
+	</bean>
+
+
+	<!-- DAO层 -->
+	<bean id="XsjjxxiaoguoDAO" class="com.pq.dao.XsjjxxiaoguoDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="XsysjdjiansheDAO"
+		class="com.pq.dao.XsysjdjiansheDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="XjiaoxuetixiDAO" class="com.pq.dao.XjiaoxuetixiDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="XbiyspingjiaDAO" class="com.pq.dao.XbiyspingjiaDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="XpinggubiaozhunDAO"
+		class="com.pq.dao.XpinggubiaozhunDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="UserDAO" class="com.pq.dao.UserDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="XjxgcjiankongDAO"
+		class="com.pq.dao.XjxgcjiankongDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="XszjsglzdDAO" class="com.pq.dao.XszjsglzdDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
+	<bean id="XevaluateDAO" class="com.pq.dao.XevaluateDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="XteacherDAO" class="com.pq.dao.XteacherDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<bean id="XprofessionalDAO"
+		class="com.pq.dao.XprofessionalDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	<!-- Service层 -->
+	<bean id="LoginService" class="com.pq.service.LoginService">
+		<property name="ud">  <ref bean="UserDAO" />  </property>
+	</bean>
+	<bean id="EvaluateService" class="com.pq.service.EvaluateService">
+		
+		<property name="xjiaodao">  <ref bean="XjiaoxuetixiDAO" />  </property>
+		<property name="xsysdao">  <ref bean="XsysjdjiansheDAO" />  </property>
+		<property name="xjxgcdao">  <ref bean="XjxgcjiankongDAO" />  </property>
+		<property name="xszjsdao">  <ref bean="XszjsglzdDAO" />  </property>
+		<property name="xsjjxdao">  <ref bean="XsjjxxiaoguoDAO" />  </property>
+		<property name="xbiyedao">  <ref bean="XbiyspingjiaDAO" />  </property>
+		<property name="xevaluedao">  <ref bean="XevaluateDAO" />  </property>
+	    <property name="xpgbzdao">  <ref bean="XpinggubiaozhunDAO" />  </property>
+	</bean>
+	
+	<bean id="XevaluateService" class="com.pq.service.XevaluateService">
+		<property name="xevaluedao">  <ref bean="XevaluateDAO" />  </property>
+	</bean>
+
+	
+	<bean id="ExcuteService" class="com.pq.service.ExcuteService">
+		<property name="xpingdao">  <ref bean="XpinggubiaozhunDAO" />  </property>
+		<property name="xjiaodao">  <ref bean="XjiaoxuetixiDAO" />  </property>
+		<property name="xsysdao">  <ref bean="XsysjdjiansheDAO" />  </property>
+		<property name="xjxgcdao">  <ref bean="XjxgcjiankongDAO" />  </property>
+		<property name="xszjsdao">  <ref bean="XszjsglzdDAO" />  </property>
+		<property name="xsjjxdao">  <ref bean="XsjjxxiaoguoDAO" />  </property>
+		<property name="xbiyedao">  <ref bean="XbiyspingjiaDAO" />  </property>
+		
+	   
+	</bean>
+	
+	<bean id="UserService" class="com.pq.service.UserService">
+		<property name="userdao">  <ref bean="UserDAO" />  </property>
+	</bean>
+	
+	<bean id="XpinggubiaozhunService" class="com.pq.service.XpinggubiaozhunService">
+		<property name="xpgbzdao">  <ref bean="XpinggubiaozhunDAO" />  </property>
+	</bean>
+	
+	<bean id="XteacherService" class="com.pq.service.XteacherService">
+		<property name="xteacherdao">  <ref bean="XteacherDAO" />  </property>
+		<property name="xprofessionaldao">  <ref bean="XprofessionalDAO" />  </property>
+	</bean>
+	
+	
+	<!-- Action控制层 -->
+	<bean id="loginAction" class="com.pq.action.loginAction">
+		<property name="loginservice">  <ref bean="LoginService" />  </property>
+	</bean>
+	
+	<bean id="UserMAction" class="com.pq.action.UserMAction">
+		<property name="userservice">  <ref bean="UserService" />  </property>
+	</bean>
+	
+	<bean id="ScoreAction" class="com.pq.action.ScoreAction">
+		<property name="xeservice">  <ref bean="XevaluateService" />  </property>
+		<property name="evservice">  <ref bean="EvaluateService" />  </property>
+		<property name="xpgbzservice">  <ref bean="XpinggubiaozhunService" />  </property>
+	</bean>
+	
+	<bean id="EvaluationAction" class="com.pq.action.EvaluationAction">
+		<property name="excuteservice">  <ref bean="ExcuteService" />  </property>
+	</bean>
+	<bean id="StudentShowAction" class="com.pq.action.StudentShowAction">
+		<property name="excuteservice">  <ref bean="ExcuteService" />  </property>
+	</bean>
+	<bean id="ProfessionalAction" class="com.pq.action.ProfessionalAction">
+		<property name="xteacherservice">  <ref bean="XteacherService" />  </property>
+	</bean>
+	</beans>
